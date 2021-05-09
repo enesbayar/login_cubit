@@ -1,0 +1,1 @@
+enum ILoginServicePath { LOGIN }
