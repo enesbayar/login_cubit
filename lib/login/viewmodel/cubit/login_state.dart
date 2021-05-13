@@ -2,6 +2,7 @@ part of 'login_cubit.dart';
 
 @immutable
 abstract class LoginState extends Equatable {
+  @override
   List<Object?> get props => [];
 }
 
@@ -17,7 +18,8 @@ class LoginValidateState extends LoginState{
 
   LoginValidateState(this.isValidate);
 
-  List<Object?> get props => [this.isValidate];
+  @override
+  List<Object?> get props => [isValidate];
 
 }
 
@@ -26,7 +28,8 @@ class LoginCompleted extends LoginState{
 
   LoginCompleted(this.loginResponse);
 
-  List<Object?> get props => [this.loginResponse];
+  @override
+  List<Object?> get props => [loginResponse];
 
 }
 
@@ -35,6 +38,7 @@ class LoginFailed extends LoginState {
 
   LoginFailed(this.errorMessage);
 
-  List<Object?> get props => [this.errorMessage];
+  @override
+  List<Object?> get props => [errorMessage];
 
 }

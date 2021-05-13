@@ -29,10 +29,12 @@ class LoginView extends StatelessWidget {
         ));
   }
 
-  Scaffold buildPage(BuildContext context, LoginState state) {
-    return Scaffold(
-      appBar: buildAppBar,
-      body: buildLoginFields(context, state),
+  Widget buildPage(BuildContext context, LoginState state) {
+    return SafeArea(
+          child: Scaffold(
+        appBar: buildAppBar,
+        body: buildLoginFields(context, state),
+      ),
     );
   }
 
@@ -65,7 +67,7 @@ class LoginView extends StatelessWidget {
           return Column(
             children: [
               buildElevatedButton(context),
-              Text(state.loginResponse.token ?? "")
+              Text(state.loginResponse.token ?? '')
             ],
           );
         } else {
@@ -76,7 +78,7 @@ class LoginView extends StatelessWidget {
   }
 
   ElevatedButton buildElevatedButton(BuildContext context) => ElevatedButton(
-      onPressed: () => _onPressed(context), child: Text("Login"));
+      onPressed: () => _onPressed(context), child: Text('Login'));
 
   void _onPressed(BuildContext context) =>
       context.read<LoginCubit>().loginRequest();
@@ -87,7 +89,7 @@ class LoginView extends StatelessWidget {
       child: TextFormField(
           controller: passwordController,
           validator: (value) =>
-              (value ?? "").length > 6 ? null : 'must be at least 6 characters',
+              (value ?? '').length > 6 ? null : 'must be at least 6 characters',
           decoration: InputDecoration(
               border: OutlineInputBorder(), labelText: ' password ')),
     );
@@ -99,7 +101,7 @@ class LoginView extends StatelessWidget {
       child: TextFormField(
           controller: eMailController,
           validator: (value) =>
-              (value ?? "").isNotEmpty ? null : 'must not be empty',
+              (value ?? '').isNotEmpty ? null : 'must not be empty',
           decoration: InputDecoration(
               border: OutlineInputBorder(), labelText: ' e-mail ')),
     );

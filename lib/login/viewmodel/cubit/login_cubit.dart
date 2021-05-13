@@ -33,7 +33,7 @@ class LoginCubit extends Cubit<LoginState> {
         if (data is LoginResponse) {
           emit(LoginCompleted(data));
         } else {
-          emit(LoginFailed("Errorrr"));
+          emit(LoginFailed('Errorrr'));
         }
       } catch (e) {
         emit(LoginFailed(e.toString()));

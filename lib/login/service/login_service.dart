@@ -15,7 +15,7 @@ class LoginService extends ILoginService {
     if (response.statusCode == HttpStatus.ok) {
       return LoginResponse.fromJson(response.data);
     } else {
-      throw Exception("fail");
+      throw Exception('fail');
     }
   }
 }
